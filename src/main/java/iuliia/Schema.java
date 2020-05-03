@@ -13,21 +13,21 @@ import java.util.Map;
 @Value
 public class Schema {
 
-    String name;
+    private String name;
 
-    String description;
+    private String description;
 
-    String url;
+    private String url;
 
-    Map<String, String> mapping;
+    private Map<String, String> mapping;
 
-    Map<String, String> prev_mapping;
+    private Map<String, String> prev_mapping;
 
-    Map<String, String> next_mapping;
+    private Map<String, String> next_mapping;
 
-    Map<String, String> ending_mapping;
+    private Map<String, String> ending_mapping;
 
-    List<List<String>> samples;
+    private List<List<String>> samples;
 
 }
 
