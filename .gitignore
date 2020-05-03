@@ -15,7 +15,9 @@ out/
 .gradle
 target/
 build/
-src/resources/scheams
+
+# ignore resources to copy
+src/main/resources/schemas/
 
 # Ignore Gradle GUI config
 gradle-app.setting
