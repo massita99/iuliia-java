@@ -1,4 +1,4 @@
-package iuliia;
+package com.massita.iuliia;
 
 
 import lombok.Value;

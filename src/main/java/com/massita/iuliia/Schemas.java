@@ -1,4 +1,4 @@
-package iuliia;
+package com.massita.iuliia;
 
 import com.google.gson.Gson;
 
