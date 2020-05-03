@@ -15,6 +15,7 @@ out/
 .gradle
 target/
 build/
+src/resources/scheams
 
 # Ignore Gradle GUI config
 gradle-app.setting
