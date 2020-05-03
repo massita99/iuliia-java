@@ -6,11 +6,12 @@ import spock.lang.Specification
 
 class MainSpecification extends Specification {
 
-    @Shared Schema schema = Schemas.forName("yandex_maps")
+    @Shared Schema schemaMetro = Schemas.forName("mosmetro")
+    @Shared Schema schemaYandex = Schemas.forName("yandex_maps")
 
     def "One-to-one translate"(String input, String result) {
         expect:
-            Iuliia.translate(input, schema) == result
+            Iuliia.translate(input, schemaYandex) == result
         where:
             input        | result
             "привет"     | "privet"
@@ -19,18 +20,26 @@ class MainSpecification extends Specification {
 
     def "With case translate"(String input, String result) {
         expect:
-            Iuliia.translate(input, schema) == result
+            Iuliia.translate(input, schemaYandex) == result
         where:
             input        | result
             "Юлия"       | "Yuliya"
     }
 
-    def "With prev translate"(String input, String result) {
+    def "With next translate"(String input, String result) {
         expect:
-            Iuliia.translate(input, schema) == result
+            Iuliia.translate(input, schemaYandex) == result
         where:
             input        | result
             "въезд"       | "vyezd"
+    }
+
+    def "With pref translate"(String input, String result) {
+        expect:
+            Iuliia.translate(input, schemaMetro) == result
+        where:
+            input        | result
+            "враньё"       | "vranyo"
     }
 
 }
