@@ -1,0 +1,16 @@
+plugins {
+    id 'java-library'
+    id 'groovy-base'
+}
+
+group 'org.example'
+version '0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.codehaus.groovy:groovy-all:2.5.7'
+    testImplementation 'org.spockframework:spock-core:1.3-groovy-2.5'
+}
