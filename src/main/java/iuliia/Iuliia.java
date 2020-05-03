@@ -4,10 +4,7 @@ package iuliia;
 import lombok.Value;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -25,11 +22,33 @@ public class Iuliia {
      * @return transliterating string
      */
     public static String translate(String input, Schema schema) {
-        List<Latter> tokens = tokenizeWord(input);
+
+        Optional<Map.Entry<String, String>> matchedEndingEntry = getMatchedEndingIfExist(input, schema);
+
+        String inputWithoutMatchedEnding;
+        String translatedEnding;
+
+        if (matchedEndingEntry.isPresent()) {
+            inputWithoutMatchedEnding = StringUtils.removeEnd(input, matchedEndingEntry.get().getKey());
+            translatedEnding = matchedEndingEntry.get().getValue();
+        } else {
+            inputWithoutMatchedEnding = input;
+            translatedEnding = "";
+        }
+
+        List<Latter> tokens = tokenizeWord(inputWithoutMatchedEnding);
 
         return tokens.stream()
                 .map(latter -> translateToken(latter, schema))
-                .collect(Collectors.joining(""));
+                .collect(Collectors.joining("")) + translatedEnding;
+    }
+
+    private static Optional<Map.Entry<String, String>> getMatchedEndingIfExist(String input, Schema schema) {
+        return Optional.ofNullable(schema.getEnding_mapping()).orElse(Collections.emptyMap())
+                .entrySet()
+                .stream()
+                .filter(entry -> input.endsWith(entry.getKey()))
+                .findFirst();
     }
 
     private static List<Latter> tokenizeWord(String input) {

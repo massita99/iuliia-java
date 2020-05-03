@@ -42,4 +42,12 @@ class MainSpecification extends Specification {
             "враньё"       | "vranyo"
     }
 
+    def "With endings translate"(String input, String result) {
+        expect:
+            Iuliia.translate(input, schemaMetro) == result
+        where:
+            input        | result
+            "единый"     | "ediny"
+    }
+
 }
