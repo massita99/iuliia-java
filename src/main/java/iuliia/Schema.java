@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Класс <class>Schema</class> TODO
+ * Class <class>Schema</class> define schema
  *
  * @author maximk
  */
@@ -28,7 +28,6 @@ public class Schema {
     Map<String, String> ending_mapping;
 
     List<List<String>> samples;
-
 
 }
 

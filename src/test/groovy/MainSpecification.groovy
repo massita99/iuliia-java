@@ -50,4 +50,12 @@ class MainSpecification extends Specification {
             "единый"     | "ediny"
     }
 
+    def "Sentence translate"(String input, String result) {
+        expect:
+            Iuliia.translate(input, schemaMetro) == result
+        where:
+            input        | result
+            "Юлия, съешь ещё этих мягких французских булок из Йошкар-Олы, да выпей алтайского чаю"     | "Yuliya, syesh esche etikh myagkikh frantsuzskikh bulok iz Yoshkar-Oly, da vypey altayskogo chayu"
+    }
+
 }

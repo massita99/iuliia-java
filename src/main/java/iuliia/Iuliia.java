@@ -8,20 +8,27 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * Класс <class>Iuliia</class> TODO
+ * Class <class>Iuliia</class> add possibilities transliterate cyrilic string using {@link Schema} to latin
  *
  * @author maximk
  */
-public class Iuliia {
+public abstract class Iuliia {
 
     /**
-     * Transliterate using specified schema
+     * Transliterate string using specified schema
      *
      * @param input  string to transliterate
      * @param schema schema for transliterating
      * @return transliterating string
      */
     public static String translate(String input, Schema schema) {
+        List<String> words = Arrays.asList(input.split("\\b"));
+        return words.stream()
+                .map(word -> translateWord(word, schema))
+                .collect(Collectors.joining(""));
+    }
+
+    private static String translateWord(String input, Schema schema) {
 
         Optional<Map.Entry<String, String>> matchedEndingEntry = getMatchedEndingIfExist(input, schema);
 
