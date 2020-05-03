@@ -1,6 +1,6 @@
-import iuliia.Iuliia
-import iuliia.Schema
-import iuliia.Schemas
+import com.massita.iuliia.Iuliia
+import com.massita.iuliia.Schema
+import com.massita.iuliia.Schemas
 import spock.lang.Shared
 import spock.lang.Specification
 

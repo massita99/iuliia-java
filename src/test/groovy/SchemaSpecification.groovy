@@ -1,5 +1,5 @@
-import iuliia.Schema
-import iuliia.Schemas
+import com.massita.iuliia.Schema
+import com.massita.iuliia.Schemas
 import spock.lang.Specification
 
 class SchemaSpecification extends Specification {
