@@ -3,15 +3,22 @@ plugins {
     id 'groovy-base'
     id "io.freefair.lombok" version "5.0.0"
     id 'jacoco'
+    id 'maven-publish'
+    id 'signing'
 }
 
-sourceCompatibility = 1.8
-
-group 'org.example'
-version '0.1-SNAPSHOT'
+group 'io.github.massita99'
+version '0.1'
 
 repositories {
     mavenCentral()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+    withJavadocJar()
+    withSourcesJar()
 }
 
 ext{
@@ -46,3 +53,51 @@ jacocoTestReport {
 }
 
 check.dependsOn jacocoTestReport
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'iuliia-java'
+            from components.java
+            pom {
+                name = 'Iuliia-java'
+                description = 'Transliterate Cyrillic → Latin in every possible way'
+                url = 'https://github.com/massita99/iuliia-java'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'massita99'
+                        name = 'Max Kilin'
+                        email = 'max.kilin@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:https://github.com/massita99/iuliia-java.git'
+                    developerConnection = 'scm:git:https://github.com/massita99/iuliia-java.git'
+                    url = 'https://github.com/massita99/iuliia-java'
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            // change URLs to point to your repos, e.g. http://my.org/repo
+            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+            credentials {
+                username ossrhUsername
+                password ossrhPassword
+            }
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.mavenJava
+}
