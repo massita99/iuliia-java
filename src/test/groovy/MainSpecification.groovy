@@ -48,6 +48,7 @@ class MainSpecification extends Specification {
         where:
             input        | result
             "единый"     | "ediny"
+            "ЕДИНЫЙ"     | "EDINY"
     }
 
     def "Sentence translate"(String input, String result) {

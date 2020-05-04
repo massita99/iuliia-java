@@ -36,7 +36,7 @@ public abstract class Iuliia {
         String translatedEnding;
 
         if (matchedEndingEntry.isPresent()) {
-            inputWithoutMatchedEnding = StringUtils.removeEnd(input, matchedEndingEntry.get().getKey());
+            inputWithoutMatchedEnding = StringUtils.removeEndIgnoreCase(input, matchedEndingEntry.get().getKey());
             translatedEnding = matchedEndingEntry.get().getValue();
         } else {
             inputWithoutMatchedEnding = input;
@@ -51,10 +51,13 @@ public abstract class Iuliia {
     }
 
     private static Optional<Map.Entry<String, String>> getMatchedEndingIfExist(String input, Schema schema) {
+        String inputWithoutCase = input.toLowerCase();
+        boolean isUpper = !inputWithoutCase.equals(input);
         return Optional.ofNullable(schema.getEnding_mapping()).orElse(Collections.emptyMap())
                 .entrySet()
                 .stream()
-                .filter(entry -> input.endsWith(entry.getKey()))
+                .filter(entry -> inputWithoutCase.endsWith(entry.getKey()))
+                .peek(entry -> entry.setValue(isUpper ? entry.getValue().toUpperCase() : entry.getValue()))
                 .findFirst();
     }
 
