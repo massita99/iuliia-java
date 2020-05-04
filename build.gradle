@@ -27,6 +27,13 @@ ext{
     apacheCommonsVersion = '3.6'
     groovyVersion = '2.5.7'
     spockVersion = '1.3-groovy-2.5'
+
+    if (! project.hasProperty('ossrhPassword')) {
+        some_prop = System.getenv('ossrhPassword')
+    }
+    if (! project.hasProperty('ossrhUsername')) {
+        some_prop = System.getenv('ossrhUsername')
+    }
 }
 
 dependencies {
