@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/massita99/iuliia-java.svg?branch=master)](https://travis-ci.org/massita99/iuliia-java)
+[![codecov](https://codecov.io/gh/massita99/transfer/branch/master/graph/badge.svg)](https://codecov.io/gh/massita99//iuliia-java)
+
 # `Iuliia`
 > Transliterate Cyrillic → Latin in every possible way
 
