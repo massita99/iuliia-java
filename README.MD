@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/massita99/iuliia-java.svg?branch=master)](https://travis-ci.org/massita99/iuliia-java)
 [![codecov](https://codecov.io/gh/massita99/transfer/branch/master/graph/badge.svg)](https://codecov.io/gh/massita99//iuliia-java)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.massita99/iuliia-java/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/io.github.massita99/iuliia-java)
 
 # `Iuliia`
 > Transliterate Cyrillic → Latin in every possible way
@@ -18,6 +19,9 @@ public class Application {
 
     public static void main(String[] args) {
         System.out.println(Iulia.translate("Юлия", Schemas.forName("yandex_maps")));
+        //OR:
+        System.out.println(Iulia.translate("Юлия", Schemas.AllSchemas.YANDEX_MAPS));
+
     }
 }
 
@@ -32,7 +36,21 @@ public class Application {
 
 ## Installation
 
-TODO:
+Gradle:
+```gradle
+dependencies {
+  implementation 'io.github.massita99:iuliia-java:0.2'
+}
+```
+
+Maven:
+```xml
+<dependency>
+  <groupId>io.github.massita99</groupId>
+  <artifactId>iuliia-java</artifactId>
+  <version>0.2</version>
+</dependency>
+```
 
 `schemas` folder is the git submodule from [general repository](https://github.com/nalgeon/iuliia). 
 
