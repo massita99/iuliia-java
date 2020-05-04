@@ -1,4 +1,4 @@
-package com.massita.iuliia;
+package io.github.massita99.iuliia;
 
 import com.google.gson.Gson;
 
@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
- * Class <class>Schemas</class> define utility class to work with {@link Schema}
+ * Class {@link Schemas}define utility class to work with {@link Schema}
  *
  * @author maximk
  */

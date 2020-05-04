@@ -11,8 +11,8 @@ Transliteration means representing Cyrillic data (mainly names and geographic lo
 `Iuliia` makes transliteration as easy as:
 
 ```java
-import com.massita.iuliia.Iuliia;
-import com.massita.iuliia.Schemas;
+import io.github.massita99.Iuliia;
+import io.github.massita99.Schemas;
 
 public class Application {
 

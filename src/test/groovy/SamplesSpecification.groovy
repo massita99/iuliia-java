@@ -1,6 +1,6 @@
-import com.massita.iuliia.Iuliia
-import com.massita.iuliia.Schema
-import com.massita.iuliia.Schemas
+import io.github.massita99.iuliia.Iuliia
+import io.github.massita99.iuliia.Schema
+import io.github.massita99.iuliia.Schemas
 import spock.lang.Specification
 
 class SamplesSpecification extends Specification {

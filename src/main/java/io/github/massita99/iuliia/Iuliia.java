@@ -1,4 +1,4 @@
-package com.massita.iuliia;
+package io.github.massita99.iuliia;
 
 
 import lombok.Value;
@@ -8,7 +8,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * Class <class>Iuliia</class> add possibilities transliterate cyrilic string using {@link Schema} to latin
+ * Class {@link Iuliia} add possibilities transliterate cyrilic string using {@link Schema} to latin
  *
  * @author maximk
  */

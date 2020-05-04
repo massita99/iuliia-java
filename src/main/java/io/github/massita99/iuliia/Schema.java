@@ -1,4 +1,4 @@
-package com.massita.iuliia;
+package io.github.massita99.iuliia;
 
 import lombok.Value;
 
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Class <class>Schema</class> define schema
+ * Class {@link Schema} define schema
  *
  * @author maximk
  */
