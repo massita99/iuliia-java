@@ -5,6 +5,8 @@ os: linux
 dist: trusty
 jdk: oraclejdk11
 
+git:
+  submodules: true
 script:
   - ./gradlew build
 after_success:
