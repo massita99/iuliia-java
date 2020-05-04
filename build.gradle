@@ -36,7 +36,7 @@ task copySchemas(type: Copy) {
     include '**/*.json'
 }
 
-jar.dependsOn(copySchemas)
+processResources.dependsOn(copySchemas)
 
 jacocoTestReport {
     reports {
